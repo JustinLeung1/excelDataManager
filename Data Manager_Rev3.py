@@ -29,7 +29,7 @@ def create_csv():
     new_csv = []
     for file in file_list:
         if file == "n/a":
-            content = [''] * 52
+            content = [''] * 68
             new_csv.append(content)
             continue
         with open(foldernames["folder_1"] + '/' + file, 'r') as csv_read:
@@ -43,7 +43,7 @@ def create_csv():
         new_csv.append(content)
 
     transpose_csv = [[new_csv[j][i] for j in range(len(new_csv))] for i in range(len(new_csv[0]))]
-    with open(foldernames["folder_1"] + '/' + "log.csv", 'w', newline='') as csv_write:
+    with open(foldernames["folder_1"] + '/' + "log.csv", 'wb') as csv_write:
         writer = csv.writer(csv_write)
         for row in transpose_csv:
             writer.writerow(row)
